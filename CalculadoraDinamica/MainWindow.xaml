@@ -6,8 +6,50 @@
         xmlns:local="clr-namespace:CalculadoraDinamica"
         mc:Ignorable="d"
         Icon="assets/calc.ico"
-        Title="Calculadora Dinámica" Height="450" Width="800">
-    <Grid>
-        
+        Title="Calculadora Dinámica"
+        Height="579"
+        Width="455"
+        MinHeight="300"
+        MinWidth="250">
+    <Window.Resources>
+        <!--Borde del textblock que muestra los números-->
+        <Style TargetType="{x:Type Border}"
+               x:Key="BordeTextBlock">
+            <Setter Property="BorderBrush"
+                    Value="Black"></Setter>
+            <Setter Property="Margin"
+                    Value="5"></Setter>
+            <Setter Property="BorderThickness"
+                    Value="1"></Setter>
+            <Setter Property="Grid.Column"
+                    Value="0"></Setter>
+            <Setter Property="Grid.Row"
+                    Value="0"></Setter>
+            <Setter Property="Grid.ColumnSpan"
+                    Value="3"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="WindowGrid" Margin="5" >
+        <!--Creo las filas y columnas-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <!--Tamaño más pequeño a la última fila-->
+            <RowDefinition Height="55"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Style="{StaticResource BordeTextBlock}">
+            <!--Viewbox para que se vean todas las cifras en la pantalla-->
+            <Viewbox HorizontalAlignment="Right">
+                <TextBlock x:Name="PantallaTextBlock"
+                           HorizontalAlignment="Right"></TextBlock>
+            </Viewbox>
+        </Border>
     </Grid>
 </Window>
